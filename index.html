@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    .container {
+      position: relative;
+    }
+
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav label {
+      font-size: 30px;
+      cursor: pointer;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 14px 16px;
+    }
+
+    
+
+    #toggle {
+      transition: 0.5s;
+    }
+
+    #toggle:checked {
+      margin-left: 250px;
+    }
+
+    #toggle:checked ~ .sidenav {
+      width: 250px;
+    }
+    
+    #toggle:not(:checked) ~ .sidenav {
+      width: 0;
+    }
+
+    .main {
+      transition: 0.5s;
+    }
+
+    #toggle:checked ~ .main {
+      margin-left: 250px;
+    }
+
+    #toggle:not(:checked) ~ .main {
+      margin-left: 0;
+    }
+
+    label[for="toggle"] {
+      transition: 0.5s;
+    }
+
+    #toggle:checked ~ label[for="toggle"] {
+      /* margin-left: 250px; */
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="toggle">
+    <label for="toggle">Menu</label>
+    <nav class="sidenav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="main">
+      <h2>Welcome to my website</h2>
+      <p>Click on the menu button to open the side navigation:</p>
+    </div>
+  </div>
+
+</body>
+</html>
