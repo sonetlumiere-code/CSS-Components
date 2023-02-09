@@ -4,37 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Pure CSS</title>
   <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Consolas', Courier, monospace;
+    }
 
     .container {
       position: relative;
+      height: 100vh;
     }
 
     .sidenav {
-      height: 100%;
       width: 0;
+      height: 100vh;
       position: fixed;
-      z-index: 1;
       top: 0;
       left: 0;
-      background-color: #111;
+      background-color: #333;
+      transition: width 0.5s ease-out;
       overflow-x: hidden;
-      transition: 0.5s;
       padding-top: 60px;
     }
 
     .sidenav a {
       padding: 8px 8px 8px 32px;
       text-decoration: none;
-      font-size: 25px;
+      font-size: 22px;
       color: #818181;
       display: block;
       transition: 0.3s;
     }
 
     .sidenav a:hover {
-      color: #f1f1f1;
+      background-color: #f1f1f1;
     }
 
     .sidenav label {
@@ -47,52 +51,49 @@
       padding: 14px 16px;
     }
 
-    
-
     #toggle {
-      transition: 0.5s;
+      display: none;
     }
 
-    #toggle:checked {
-      margin-left: 250px;
+    #toggle:checked + label {
+      left: 250px;
     }
 
     #toggle:checked ~ .sidenav {
       width: 250px;
     }
-    
-    #toggle:not(:checked) ~ .sidenav {
-      width: 0;
-    }
 
     .main {
-      transition: 0.5s;
+      margin-left: 0;
+      height: 100vh;
+      padding: 60px 0;
+      transition: margin-left 0.5s ease-out;
     }
 
     #toggle:checked ~ .main {
       margin-left: 250px;
     }
 
-    #toggle:not(:checked) ~ .main {
-      margin-left: 0;
-    }
-
     label[for="toggle"] {
-      transition: 0.5s;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      transition: left 0.5s ease-out;
     }
-
-    #toggle:checked ~ label[for="toggle"] {
-      /* margin-left: 250px; */
-    }
-
 
   </style>
 </head>
 <body>
   <div class="container">
     <input type="checkbox" id="toggle">
-    <label for="toggle">Menu</label>
+    <label for="toggle"><small>menu</small></label>
     <nav class="sidenav">
+      <hr />
       <a href="#">Home</a>
       <a href="#">About</a>
       <a href="#">Services</a>
@@ -103,6 +104,5 @@
       <p>Click on the menu button to open the side navigation:</p>
     </div>
   </div>
-
 </body>
 </html>
