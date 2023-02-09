@@ -11,6 +11,10 @@
       font-family: 'Consolas', Courier, monospace;
     }
 
+    :root {
+      --250px: 250px;
+    }
+
     .container {
       position: relative;
       height: 100vh;
@@ -41,28 +45,6 @@
       background-color: #f1f1f1;
     }
 
-    .sidenav label {
-      font-size: 30px;
-      cursor: pointer;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 14px 16px;
-    }
-
-    #toggle {
-      display: none;
-    }
-
-    #toggle:checked + label {
-      left: 250px;
-    }
-
-    #toggle:checked ~ .sidenav {
-      width: 250px;
-    }
-
     .main {
       margin-left: 0;
       height: 100vh;
@@ -70,8 +52,20 @@
       transition: margin-left 0.5s ease-out;
     }
 
+    #toggle {
+      display: none;
+    }
+
+    #toggle:checked + label {
+      left: var(--250px);
+    }
+
+    #toggle:checked ~ .sidenav {
+      width: var(--250px);
+    }
+
     #toggle:checked ~ .main {
-      margin-left: 250px;
+      margin-left: var(--250px);
     }
 
     label[for="toggle"] {
@@ -84,6 +78,18 @@
       height: 32px;
       cursor: pointer;
       transition: left 0.5s ease-out;
+    }
+
+    @media (min-width: 991px) {
+      .sidenav {
+        width: var(--250px);
+      }
+      .main {
+        margin-left: var(--250px);
+      }
+      label[for="toggle"] {
+        display: none;
+      }
     }
 
   </style>
